@@ -34,7 +34,7 @@ new terminal for this.
 
 ## A Custom Function Container Image
 
-This example has only artifact - a Dockerfile  to convert input to uppercase using *tr*.
+This example has only one artifact - a Dockerfile  to convert input to uppercase using *tr*.
 
 `echo "hello" | tr [:lower:] [:upper:]`
 
