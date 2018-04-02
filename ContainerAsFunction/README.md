@@ -161,7 +161,7 @@ above.
    expected.
 
    ```sh
-  HELLO
+   HELLO
    ```
 When the function is invoked, regardless of the mechanism, the Fn server 
 looks up the function image name and tag associated with the route and 
