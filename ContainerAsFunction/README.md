@@ -177,4 +177,3 @@ Having completed this tutorial you've successfully built a Docker image,
 defined a function as implemented by that image, and invoked the function
 resulting in the creation of a container using that image.  Congratulations!
 
-**Go:** [Back to Contents](../README.md)
