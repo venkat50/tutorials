@@ -76,7 +76,7 @@ In your working directory, build and run the image as you would any Docker image
 
 Great!  We have a working Docker image.  Now let's deploy it as a function.
 
-## Publishing the Function Image
+## Publishing the Function Image (optional)
 
 When developing locally you don't need to deploy to Docker Hub--the
 local Fn server can find your function image on the local machine. But
