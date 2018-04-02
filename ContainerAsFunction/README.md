@@ -66,7 +66,7 @@ In your working directory, build and run the image as you would any Docker image
 2. Test the image by running it with a name parameter:
 
    ![](images/userinput.png)
-   >`echo -n "hello" | docker run -i --rm <yourdockerid>/node-hello:0.0.1`
+   >`echo -n "hello" | docker run -i --rm <yourdockerid>/tr-hello:0.0.1`
 
    The output should be the same as be except "Jane" in place of "World":
 
