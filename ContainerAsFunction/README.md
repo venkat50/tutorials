@@ -1,19 +1,14 @@
 # Creating a Function from a Docker Image
 
-This tutorial walks through how to use a custom Docker image to define an
-Fn function.  Although Fn functions are packaged as Docker images, when
-developing functions using the fn CLI developers are not directly exposed
-to the underlying Docker platform.  Docker isn't hidden (you can see
-Docker build output and image names and tags in routes), but you aren't
-required to be very Docker-savvy to develop functions with Fn.
-However, sometimes you need to handle advanced use cases and must take
-complete control of the creation of the function image. Fortunately
-the design and implementation of Fn enables you to do exactly that.  Let's
-build a simple custom function image to walk through the process.
+There are various unix utilities that can be "packaged" as Functions. 
+Similar to the concept of Web enabled, Webservice Enabled, this example demonstrates
+exposing unix utilities as *REST* enabled. This example walks through a simple example 
+of using "tr" utility to transform input payload to upper case (aka TOUPPER service).
+This example also demonstrates a "no code" approach to leverage many such utilities using Docker file.
 
 As you make your way through this tutorial, look out for this icon.
 ![](images/userinput.png) Whenever you see it, it's time for you to
-perform an action.
+perform an action. 
 
 ## Prequisites
 
@@ -26,83 +21,37 @@ help with Fn installation you can find instructions in the
 Before we can get starting there are a couple of configuration steps to take
 care of.
 
-## Login to Docker Hub
-
-To make it possible to push images you need to authenticate yourself with your
-Docker repository (default is Docker Hub).
-
-![](images/userinput.png)
->`docker login`
-
 ## Start Fn Server
 
 Next, if it isn't already running, you'll need to start the Fn server.  We'll
 run it in the foreground to let us see the server log messages so let's open a
 new terminal for this.
 
-1. Define the FN_REGISTRY environment variable to point the Fn server to where
-it should pull function images from. If using the default Docker Hub registry 
-you just need to specify
-your docker user id:
-
-   ![](images/userinput.png)
-   >`export FN_REGISTRY=<yourdockerid>`
-
-2. Start the Fn server using the `fn` cli:
+   Start the Fn server using the `fn` cli:
 
    ![](images/userinput.png)
    >`fn start`
 
 ## A Custom Function Container Image
 
-In this tutorial we only have two artifacts: a Dockerfile and a very simple
-Node.js "Hello World" application that returns a customized greeting given 
-a name.
+This example has only artifact - a Dockerfile  to convert input to uppercase using *tr*.
 
-### func.js
-
-The func.js file is nothing special and simply reads from standard input
-and writes to standard output.  This is the standard Fn supported mechanism
-for functions to receive input and return output.  
-['Hot Functions'](https://github.com/fnproject/fn/blob/master/docs/hot-functions.md)
-(not discussed in this tutorial) are slightly different.  
-
-![](images/userinput.png) Copy/paste the following into a file named `func.js`:
-
-```javascript
-name = "World";
-fs = require('fs');
-try {
-	input = fs.readFileSync('/dev/stdin').toString();
-	if (input) {
-		name = input;
-	}
-} catch(e) {}
-console.log("Hello", name, "from Node!");
-```
+`echo "hello" | tr [:lower:] [:upper:]`
 
 ### Dockerfile
 
 The `Dockerfile` for our function is also very simple.  It starts with
-a light alpine Node.js base image, copies the `func.js` into the image,
-and sets the entrypoint so that when the container is started the
-`func.js` is run.
+a light alpine base image, and sets the entrypoint so that when the container is started the
+`tr` is run with CMD set to convert to upper case.
 
-NOTE: `func.js` has no required Node modules but if there were
-you would have to run `npm install` to download them to the 
-`/function/node_modules` folder in the generated image.
-
-![](images/userinput.png) In the same folder as the `func.js` file, copy/paste
- the following into a file named `Dockerfile`:
+![](images/userinput.png) Create the following into a file named `Dockerfile`:
 
 ```dockerfile
-FROM node:8-alpine
+FROM alpine
 
-WORKDIR /function
+ENTRYPOINT ["tr"]
 
-ADD func.js /function/func.js
-
-ENTRYPOINT ["node", "./func.js"]
+CMD ["[:lower:]", "[:upper:]"]
 ```
 
 ### Building the Function Image
@@ -112,27 +61,17 @@ In your working directory, build and run the image as you would any Docker image
 1. Build your function container image with `docker build`:
 
    ![](images/userinput.png)
-   >`docker build . -t <yourdockerid>/node-hello:0.0.1`
+   >`docker build . -t <yourdockerid>/tr-hello:0.0.1`
 
-2. Test the image by running it with no input:
-
-   ![](images/userinput.png)
-   >`docker run --rm <yourdockerid>/node-hello:0.0.1`
-
-   The output should be:
-   ```
-   Hello World from Node!
-   ```
-
-3. Test the image by running it with a name parameter:
+2. Test the image by running it with a name parameter:
 
    ![](images/userinput.png)
-   >`echo -n "Jane" | docker run -i --rm <yourdockerid>/node-hello:0.0.1`
+   >`echo -n "hello" | docker run -i --rm <yourdockerid>/node-hello:0.0.1`
 
    The output should be the same as be except "Jane" in place of "World":
 
    ```
-   Hello Jane from Node!
+   HELLO
    ```
 
 Great!  We have a working Docker image.  Now let's deploy it as a function.
@@ -147,7 +86,7 @@ a repository like Docker Hub.  You can do this with a standard `docker push`
 but again this step is optional when we're working locally.
 
 ![](images/userinput.png)
->`docker push <yourdockerid>/node-hello:0.0.1`
+>`docker push <yourdockerid>/tr-hello:0.0.1`
 
 ## Creating the Fn App and Defining the Route
 
@@ -170,10 +109,10 @@ that application:
 2. We then create a route that uses our manually built container image:
 
    ![](images/userinput.png)
-   >`fn routes create demoapp /hello -i <yourdockerid>/node-hello:0.0.1`
+   >`fn routes create demoapp /toupper -i <yourdockerid>/tr-hello:0.0.1`
 
    ```xml
-   /hello created with <yourdockerid>/node-hello:0.0.1
+   /toupper created with <yourdockerid>/tr-hello:0.0.1
    ```
 
 3. We can confirm the route is correctly defined by getting a list of the routes
@@ -186,7 +125,7 @@ defined for an application:
 
    ```xml
    path    image                            endpoint
-   /hello  <yourdockerid>/node-hello:0.0.1  localhost:8080/r/demoapp/hello
+   /toupper  <yourdockerid>/tr-hello:0.0.1  localhost:8080/r/demoapp/toupper
    ```
 
 At this point all the Fn server has is configuration metadata.
@@ -203,12 +142,12 @@ as intended!
 1. Call the function using `fn call`:
 
    ![](images/userinput.png)
-   >`echo -n "Jane" | fn call demoapp /hello`
+   >`echo -n "hello" | fn call demoapp /toupper
 
    This will produce the expected output:
 
    ```sh
-   Hello Jane from Node!
+   HELLO
    ```
 
 2. Call the function with curl using it's http endpoint.  You can find out the
@@ -216,13 +155,13 @@ endpoints for each of your routes using the `fn routes list` command we used
 above.
 
    ![](images/userinput.png)
-   >`curl -d "Jane" http://localhost:8080/r/demoapp/hello`
+   >`curl -d "hello" http://localhost:8080/r/demoapp/toupper`
 
    This will produce exactly the same output as when using `fn call`, as 
    expected.
 
    ```sh
-   Hello Jane from Node!
+  HELLO
    ```
 When the function is invoked, regardless of the mechanism, the Fn server 
 looks up the function image name and tag associated with the route and 
