@@ -75,7 +75,7 @@ In your working directory, build and run the image as you would any Docker image
 2. Test the image by running with a input string:
 
    ![](images/userinput.png)
-   >`echo -n "hello" | docker run -i --rm tr-demo:0.0.2`
+   > `echo -n "hello" | docker run -i --rm tr-demo:0.0.2`
 
    The output should be input string transformed to upper case like below:
 
