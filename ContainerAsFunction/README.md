@@ -158,7 +158,7 @@ outputs. Here is the test.json
                 "body": "HELLO WORLD"
             }
         }
-        ]
+    ]
 }
 ```
 
