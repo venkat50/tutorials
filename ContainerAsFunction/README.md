@@ -1,4 +1,4 @@
-# Creating a Function from a Docker Image
+# Creating a Function from a built-in Unix utility
 
 There are various unix utilities that can be "packaged" as Functions. 
 Similar to the concept of Web enabled, Webservice enabled, this example demonstrates
@@ -34,7 +34,8 @@ new terminal for this.
 
 ## A Custom Function Container Image
 
-This example has only one artifact - a Dockerfile that converts input to uppercase using *tr*.
+This example has only one artifact - a Dockerfile that converts input to uppercase using *tr*. 
+Try the following command on a unix shell.
 
 `echo "hello" | tr [:lower:] [:upper:]`
 
