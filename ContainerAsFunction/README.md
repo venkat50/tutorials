@@ -63,6 +63,7 @@ In your working directory, build and run the image as you would any Docker image
    ![](images/userinput.png)
    >`fn deploy -deploy --local --app tr-hello`
    
+   Output
    ---
    Deploying tr-demo to app: tr-hello at path: /toupper
    Bumped to version 0.0.2
