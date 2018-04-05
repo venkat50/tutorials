@@ -160,7 +160,7 @@ outputs. Here is the test.json
         }
         ]
 }
----
+```
 
 ![](images/userinput.png)
 >```sh
