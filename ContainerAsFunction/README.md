@@ -160,11 +160,11 @@ outputs. Here is the test.json
         }
         ]
 }
-
+---
 
 ![](images/userinput.png)
-```sh
-> `fn test`
+>```sh
+>`fn test`
 
 You should see the following results:
 
