@@ -1,0 +1,12 @@
+{
+    "tests": [
+        {
+            "input": {
+                "body": "Hello World"
+            },
+            "output": {
+                "body": "HELLO WORLD"
+            }
+        }
+        ]
+}
