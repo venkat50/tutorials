@@ -63,13 +63,13 @@ In your working directory, build and run the image as you would any Docker image
    ![](images/userinput.png)
    >`fn deploy -deploy --local --app tr-hello`
    
-   Output
-   ---
+   You should see following output
+   ```sh
    Deploying tr-demo to app: tr-hello at path: /toupper
    Bumped to version 0.0.2
    Building image tr-demo:0.0.2
    Updating route /toupper using image tr-demo:0.0.2...
-  ---
+
 
 2. Test the image by running with a input string:
 
@@ -108,7 +108,7 @@ defined for an application:
    You should see something like:
 
    ```xml
-   path    image                            endpoint
+   path      image          endpoint
    /toupper  tr-demo:0.0.2  localhost:8080/r/tr-hello/toupper
 
 1. Call the function using `fn call`:
