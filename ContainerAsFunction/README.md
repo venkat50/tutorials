@@ -144,9 +144,42 @@ locally then Docker will attempt to pull the image from the Docker registry.
 In our local development scenario, the image is already on the local machine
 so you won't see a 'pull' message in the Fn server log.
 
+## Let's run test
+The test format is simply a json file with an array of inputs and expected 
+outputs. Here is the test.json
+```json
+{
+    "tests": [
+        {
+            "input": {
+                "body": "Hello World"
+            },
+            "output": {
+                "body": "HELLO WORLD"
+            }
+        }
+        ]
+}
+
+
+![](images/userinput.png)
+>```sh
+> `fn test`
+
+You should see the following results:
+
+```
+Test 1
+PASSED -    ( 1.184147801s )
+
+tests run: 1 passed, 0 failed
+
+```
+
+
 # Conclusion
 
 Having completed this tutorial you've successfully defined a function for built-in unix utilities 
-and enable it to be invoked as function by exposing it as a REST endpoint. Congratulations!
+and enabled it to be invoked as function. Congratulations!
 
 
