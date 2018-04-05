@@ -163,7 +163,7 @@ outputs. Here is the test.json
 
 
 ![](images/userinput.png)
->```sh
+```sh
 > `fn test`
 
 You should see the following results:
