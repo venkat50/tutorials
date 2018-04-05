@@ -115,7 +115,7 @@ defined for an application:
 1. Call the function using `fn call`:
 
    ![](images/userinput.png)
-   >`echo -n "hello" | fn call tr-hello /toupper
+   > `echo -n "hello" | fn call tr-hello /toupper
 
    This will produce the expected output:
 
@@ -164,7 +164,7 @@ outputs. Here is the test.json
 
 ![](images/userinput.png)
 >```sh
->`fn test`
+> `fn test`
 
 You should see the following results:
 
