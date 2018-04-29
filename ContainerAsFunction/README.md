@@ -2,7 +2,7 @@
 
 There are various unix utilities that can be "packaged" as Functions. 
 Similar to the concept of Web enabled, Webservice enabled, this example demonstrates
-exposing unix utilities as *REST* enabled. This example walks through a simple example 
+exposing Unix utilities as *REST* enabled. This example walks through a simple example 
 of using "tr" utility to transform input payload to upper case (aka TOUPPER service).
 This example also demonstrates a "no code" approach to leverage many such utilities using Docker file.
 
