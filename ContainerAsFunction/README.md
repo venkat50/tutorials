@@ -45,7 +45,7 @@ The `Dockerfile` for our function is also very simple.  It starts with
 a light alpine base image, and sets the entrypoint so that when the container is started the
 `tr` is run with CMD set to convert to upper case.
 
-![](images/userinput.png) Create the following into a file named `Dockerfile`:
+![](images/userinput.png) Copy the following into a file named `Dockerfile`:
 
 ```dockerfile
 FROM alpine
