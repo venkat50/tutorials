@@ -18,7 +18,7 @@ help with Fn installation you can find instructions in the
 
 # Getting Started
 
-Before we can get starting there are a couple of configuration steps to take
+Before we can get started there are a couple of configuration steps to take
 care of.
 
 ## Start Fn Server
