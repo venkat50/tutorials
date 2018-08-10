@@ -23,7 +23,7 @@ care of.
 
 ## Start Fn Server
 
-if it isn't already running, you'll need to start the Fn server.  We'll
+If it isn't already running, you'll need to start the Fn server.  We'll
 run it in the foreground to let us see the server log messages so let's open a
 new terminal for this.
 
