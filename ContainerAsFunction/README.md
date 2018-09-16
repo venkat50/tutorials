@@ -123,7 +123,7 @@ List the files in the current directory
 The output should include the following files:
 ```txt
 Dockerfile func.yaml  run-tr.sh
-```txt
+```
 
 The contents of func.yaml
 ```txt
@@ -137,7 +137,7 @@ triggers:
 - name: tr-lower
   type: http
   source: /lower
-```txt
+```
 
 ### Deploy your function
 
