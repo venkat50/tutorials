@@ -23,7 +23,7 @@ HELLO
 ```
 
 
-## Prequisites
+## Before you begin
 
 This tutorial requires you to have both Docker and Fn installed. If you need
 help with Fn installation you can find instructions in the
