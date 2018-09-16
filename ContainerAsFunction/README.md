@@ -195,6 +195,6 @@ HELLO WORLD
 
 Having completed this tutorial you've successfully defined a function for built-in unix utilities 
 and enabled it to be invoked as function. Congratulations!
-Check out [Tr examples](https://shapeshed.com/unix-tr) for additonal examples of tr syntax.
+Check out [tr examples](https://shapeshed.com/unix-tr) for tr usage to build useful functions.
 
 
