@@ -185,7 +185,7 @@ hello world
 ```
 >```sh
 >curl -d "Hello World" http://localhost:8080/t/trapp/upper
->```sh
+>```
 
 ```txt
 HELLO WORLD
