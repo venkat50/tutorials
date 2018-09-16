@@ -157,7 +157,7 @@ You should see output similar to:
    Successfully created function: trapp with trapp:0.0.2
    Successfully created trigger: tr-upper
    Successfully created trigger: tr-lower
-   ```txt
+   ```
    
 FN server exposes the function as an HTTP endpoint.
 ![](images/userinput.png)
