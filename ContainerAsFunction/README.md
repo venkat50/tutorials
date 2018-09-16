@@ -178,9 +178,9 @@ Call the function with curl using it's http endpoint.
 ![](images/userinput.png)
 >```sh
 >curl -d "Hello World" http://localhost:8080/t/trapp/lower
-`hello world`
+>hello world
 >curl -d "Hello World" http://localhost:8080/t/trapp/upper
-`HELLO WORLD`
+>HELLO WORLD
 >```
 
 # Conclusion
