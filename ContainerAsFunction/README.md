@@ -2,7 +2,7 @@
 
 This sample demonstrates how to package common unix utilies and cli as Function. You are probably familiar with terms such as -
 Web enabled, Webservice enabled etc. Think of this technique to *REST* enable command line utilities. 
-Have you used or heard ot "tr"? Well, [tr](http://linuxcommand.org/lc3_man_pages/tr1.html) is a very useful utility that is available in most linux distributions. This example b.shows how to build a function to return input transformed to uppercase. 
+Have you used or heard ot "tr"? Well, [tr](http://linuxcommand.org/lc3_man_pages/tr1.html) is a very useful utility that is available in most linux distributions. This example shows how to build a function to return input transformed to uppercase. 
 
 This example also demonstrates a "no code" approach to leverage many such utilities using busybox with resulting docker image around 1.5Mb.
 
