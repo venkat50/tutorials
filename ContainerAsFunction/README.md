@@ -97,9 +97,9 @@ Take a look at the generated func.yaml
 name: trapp
 version: 0.0.1
 triggers:
-- name: -trigger
+- name: trapp-trigger
   type: http
-  source: /-trigger
+  source: /trapp-trigger
 ```
 The name corresponds to directory name - trapp. 
 
