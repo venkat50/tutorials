@@ -66,7 +66,7 @@ In the terminal type the following:
 
 ![](images/userinput.png) 
 >```sh
-> fn init --runtime docker --trigger http tr
+> fn init --runtime docker --trigger http 
 >```
 
 The output will be 
