@@ -1,4 +1,10 @@
-name: tr-demo
+schema_version: 20180708
+name: tr
 version: 0.0.1
-runtime: docker
-path: /toupper
+triggers:
+- name: tr-upper
+  type: http
+  source: /upper
+- name: tr-lower
+  type: http
+  source: /lower
