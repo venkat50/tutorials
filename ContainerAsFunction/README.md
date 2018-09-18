@@ -45,7 +45,7 @@ new terminal for this.
 
 ### Create the function
 
-Let us start by creating a directory.
+Let us start by creating a directory in a new terminal.
 ![](images/userinput.png)
    >```sh
    >mkdir trapp
