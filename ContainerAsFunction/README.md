@@ -194,7 +194,7 @@ HELLO WORLD
 # Conclusion
 
 Having completed this tutorial you've successfully defined a function for built-in unix utilities 
-and enabled it to be invoked as function. Congratulations!
+and invoked as REST endpoint or in other words created an API. Congratulations!
 Check out [tr examples](https://shapeshed.com/unix-tr) for tr usage to build useful functions.
 
 
