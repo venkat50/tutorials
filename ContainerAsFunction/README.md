@@ -1,7 +1,7 @@
 # Creating a Function from a built-in Unix utility
 
 This sample demonstrates how to package common unix utilies and cli as Function. You are probably familiar with terms such as -
-Web enabled, Webservice enabled etc. Think of this technique to *REST* enable command line utilities. 
+Web enabled, Webservice enabled etc. Think of this technique as *API* enable command line utilities. This implementation is very basic and uses string/text payload instead of JSON payload to illustrate an idea.
 Have you used or heard ot "tr"? Well, [tr](http://linuxcommand.org/lc3_man_pages/tr1.html) is a very useful utility that is available in most linux distributions. This example shows how to build a function to return input transformed to uppercase. 
 
 This example also demonstrates a "no code" approach to leverage many such utilities using busybox with resulting docker image around 1.5Mb.
